@@ -61,7 +61,17 @@ for stline in sys.stdin:
 
 #  Iterate through st_lists
 dupes = int(0)
+lcount = int(1)
+
+#print(st_lists)
+
+# Get first and last items from list and assign them to variables.
+fw = st_lists[1]
+lw = st_lists[-1]
+
 for i in st_lists:
+    frontword = int(0)
+    backword = int(0)
     # Turn i into a list of characters for that word.
     ei = list(i)
     # print(ei)
@@ -69,15 +79,24 @@ for i in st_lists:
     firstlet = str(ei[0])  # Select first item in list(first letter)
     lastlet = str(ei[-1])  # Select last item in list(second letter)
 
-    firstletnext = firstlet  # Save the old firstletter to a new var so you can compare it against the next lastletter.
-    lastletnext = lastlet   # Save the old lastletter to a new var so you can compare it against the next firstletter.
+    oldfirstlet = firstlet  # Save the old firstletter to a new var so you can compare it against the next lastletter.
+    oldlastlet = lastlet  # Save the old lastletter to a new var so you can compare it against the next firstletter.
+
+    # Determine if this item is a first or last item.
+    if lcount == fw:
+        frontword = int(1)
+        lcount += 1
+    elif lcount == lw:
+        backword = int(1)
+        lcount += 1
 
     # Compare our letters for duplicates and count them.
-    if lastlet == firstletnext:
+    if oldlastlet == firstlet:
         dupes += 1
-    if firstletnext == lastlet:
+    if lastlet == oldfirstlet:
         dupes += 1
     #print("first ", firstlet)
     #print("last ", lastlet)
+    lcount += 1
 
 print(dupes)  # Print the amount of duplicates.
