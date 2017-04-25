@@ -15,7 +15,6 @@
 #
 # 3
 
-
 import sys
 
 MAXVALUE = int(100)
@@ -34,11 +33,14 @@ for stline in sys.stdin:
 # print("List[1]:", st_lists[1])
 # print("List[2]:", st_lists[2])
 
-# Assign each list item to a variable. Convert them to int's while we're at it.
+# Assign each list item to a variable. Convert them to int's.
 fib_a = int(st_lists[0])
 fib_b = int(st_lists[1])
 fib_p = int(st_lists[2])
+
+# Save our old position variable
 fib_ploop = fib_p
+# Subtract 1 since our index's actually start at 0.
 fib_p -= 1
 
 def fib(n):  # Create the function that creates our fibonacci sequence using the first two lines from stdin. Maximum value as the function param.
@@ -51,11 +53,10 @@ def fib(n):  # Create the function that creates our fibonacci sequence using the
         tmpvar = b  # Save b1 to a temp var
         b = a + b  # Determine b's new value
         a = tmpvar  # Determine a's new value(b's old value)
-        lstop += 1
+        lstop += 1 # stop counter
     return re  # Return our new result
 
 fibby = fib(MAXVALUE)  # Run our fib function with MAXVALUE as a param. Save results to a list called fibby.
 
 #print("Full Fibby List:", fibby)
 print(fibby[fib_p])
-

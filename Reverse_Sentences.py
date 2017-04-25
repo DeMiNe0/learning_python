@@ -22,7 +22,7 @@ import sys
 
 n_count = []  # Create empty st_lists list.
 
-# Determine amount of input lines for stline
+# Determine amount of input lines for stline. Only allow one line. Add it to a list called n_count.
 count = int(0)
 for ncount in sys.stdin:
     n_count.append(ncount.rstrip('\n'))

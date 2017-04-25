@@ -13,7 +13,7 @@ st_lists = int(str(st_lists[0]))   # convert st_lists into an integer for use in
 
 #print("testing: ", st_lists)
 
-a = 0 # create a
+a = 0  # create a
 while a < st_lists:
     print("Hello")
     a += 1
